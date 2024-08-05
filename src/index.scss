@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+// Editor CSS
+@import url(./styles/grid-core.scss);
+@import url(./styles/tools.scss);
+body {
+  margin: 0;
+  overflow: clip;
+  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  //   sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Lato", sans-serif;
+  background: var(--_gray-bg);
+
+  --_height-100-dvh: 100dvh;
+  --_dummy-header-height: 70px;
+  --_cms-header-height: 48px;
+  --_cms-sidebar-width: 50px;
+
+  --_d-flex: flex;
+  --_flex-wrap: wrap;
+  --_d-inline-flex: inline-flex;
+  --_d-grid: grid;
+  --_d-block: block;
+  --_d-none: none;
+
+  --_p-absolute: absolute;
+  --_p-fixed: fixed;
+  --_p-sticky: sticky;
+  --_p-static: static;
+  --_p-relative: relative;
+
+  --_f-row: row;
+  --_f-column: column;
+  --_justify_start: flex-start;
+  --_justify-center: center;
+  --_justify-between: space-between;
+  --_justify-end: flex-end;
+
+  --_align-center: center;
+  --_align-start: start;
+  --_align-left: left;
+  --_align-items-flex-start: flex-start;
+
+  --_body-bg: #f7f8fa;
+  --_gray-50: #f9fafb;
+  --_gray-100: #f2f4f7;
+  --_gray-200: #eaecf0;
+  --_gray-300: #d0d5dd;
+  --_gray-500: #667085;
+  --_gray-600: #475467;
+  --_gray-700: #344054;
+  --_gray-900: #101828;
+  --_base-white: #fff;
+  --_base-black: #000;
+  --_border-light-color: #eaecf0;
+  --_gray-bg: #d9d9d9;
+  --_gray-bg-r: 217;
+  --_gray-bg-g: 217;
+  --_gray-bg-b: 217;
+  --_bg-overlay: rgba(52, 64, 84, 0.4);
+  --_gray-blue-300: #b3b8db;
+  --_red-500: #f04438;
+
+  --_accent-color-2-500: #583fff;
+  --_success-800: #05603a;
+
+  --_primary-25: #f5f6fd;
+  --_primary-50: #e2e5fa;
+  --_primary-100: #ced4f6;
+  --_primary-300: #8190e8;
+  --_primary-400: #243dc6;
+  --_primary-500: #162578;
+  --_primary-600: #132067;
+  --_primary-700: #111c5b;
+  --_red-300: #fda29b;
+  --_red-100: #fee4e2;
+  --_warning-25: #fffcf5;
+  --_warning-300: #fec84b;
+
+  --_error-700: #b42318;
+
+  --_default-pd-inline: 24px;
+
+  --_grid-row-unit: 1cqw;
+  --_section-max-width: 9999px;
+  --_scrollbar-width: 0px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+
+button{
+  background: transparent;
+  border: none;
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: var(--_scrollbar-width); /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Background color of the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Background color of the thumb on hover */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin; /* Options: auto, thin */
+  scrollbar-color: #888 #f1f1f1; /* thumb color, track color */
+}
+
+

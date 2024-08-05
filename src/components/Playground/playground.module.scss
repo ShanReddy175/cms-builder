@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "sass:list";
+
+
+#playground{
+    width: 100%;
+    // overflow-x: clip;
+    // position: var(--_p-relative);
+
+    &:has([data-nochildhover-resizer="true"]){
+        --_self-playground-height: calc(1px * var(--_playground-min-height));
+        max-height: var(--_self-playground-height);
+        height: var(--_self-playground-height);
+        min-height: var(--_self-playground-height);
+        overflow: clip;
+    }
+
+    & > div{
+        &[data-id="page-wrapper"]{
+            position: var(--_p-relative);
+            // padding-block-end: 50px;
+            display: var(--_d-grid);
+            // width: 1cqw;
+
+            --_cms-playground-unit: 1cqw; 
+            --_cms-section-max-width: 9999px;
+            --_cms-scrollbar-width: 15px;
+            
+
+            &:has(section[data-has-clicked=true]:hover){
+                & > [data-cms-tool="CMS Layers"]{
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}

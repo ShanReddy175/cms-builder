@@ -1,0 +1,91 @@
+@use 'sass:map';
+@use 'sass:list';
+
+.layers__parent{
+    position: var(--_p-absolute);
+    display: var(--_d-grid);
+    margin-block-start: var(--_cms-page-wrapper-header-mh);
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    & > div{
+        &.wrapper__layer{
+            display: var(--_d-grid);
+        }
+    }
+
+    &:has(.section__layer[data-has-clicked=true]:hover){
+        --_self-layer-zIndex: -1;
+        z-index: var(--_self-layer-zIndex);
+    }
+
+    &:has(.section__layer[data-nochildhover-resizer=true]){
+        --_resizer-on-ele-bg: transparent;
+        --_self-pointer-events: none;
+        --_self-resizer-zIndex: var(--_cms-resizer-dragging-grid-layer-zIndex);
+    }
+
+    div{
+        &.section__layer{
+            // z-index: var(--_self-layer-zIndex);
+            position: var(--_p-relative);
+            // pointer-events: none;
+            *:not(button, button *){
+                pointer-events: none;
+            }
+
+            &:not([data-nochildhover-resizer=true]){
+                pointer-events: var(--_self-pointer-events);
+                z-index: var(--_self-resizer-zIndex);
+            }
+
+            &[data-nochildhover-resizer=true]{
+                background: var(--_primary-50) !important;
+                --_self-resizer-zIndex: var(--_cms-grid-swap-icon-zIndex);
+                // min-height: calc(var(--_self-resizing-minHeight, 0) * 1px) !important;
+                &:hover{
+                    --_resizer-on-ele-bg: var(--_primary-50);
+                }
+            }
+
+            &[data-has-nochilds="true"]{
+                --_self-et-layer-bg: var(--_primary-50);
+                min-height: var(--_cms-page-section-nochilds-minheight) !important;
+                --_resizer-span-pointer-events: none;
+            }
+
+            &:hover{
+                background: var(--_resizer-on-ele-bg, var(--_self-et-layer-bg, transparent));
+                // z-index: -1;
+                
+                button{
+                    
+                    z-index: var(--_cms-add-grid-btn-zIndex-v2);
+                }
+            }
+            // gap: 4px;
+            & > div{
+                &.wrapper__layer{
+                    position: var(--_p-absolute);
+                    inset: 1px 1px 1px 1px;
+                    border: 1px solid var(--_primary-100);
+                    display: var(--_self-wrapper-display, var(--_d-none));
+                }
+            }
+            &:not([data-has-clicked=true]){
+                &:hover, &[data-nochildhover-resizer=true]{
+                    --_self-grid-layer-bg: var(--_primary-50);
+                    --_self-grid-layer-bc: var(--_primary-100);
+                    --_self-wrapper-display: var(--_d-flex);
+                }
+            }
+            div{
+                &.grid__layer{
+                    background: var(--_self-grid-layer-bg, transparent);
+                    border: 1px solid var(--_self-grid-layer-bc, transparent);
+                }
+            }
+        }
+    }
+}

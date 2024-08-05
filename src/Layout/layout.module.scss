@@ -1,0 +1,130 @@
+@use "sass:list";
+@use "sass:map";
+
+#main__layout{
+    & > header{
+        &#main__header{
+            background: var(--_base-white);
+            display: var(--_d-flex);
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: var(--_cms-header-height);
+            padding-inline: var(--_default-pd-inline);
+            position: var(--_p-sticky);
+            top: 0;
+            border-block-end: 1px solid var(--_gray-300);
+            h1{
+                font-size: 20px;
+                line-height: 1;
+                font-weight: 600;
+                color: var(--_primary-700);
+                // text-transform: uppercase;
+            }
+
+            button{
+                padding-inline: 14px;
+                height: 32px;
+                display: var(--_d-flex);
+                align-items: center;
+                background: var(--_primary-500);
+                border-radius: 4px;
+                color: var(--_base-white);
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+    }
+
+    & > div{
+        &.main__div{
+            width: 100%;
+            display: var(--_d-flex);
+
+            & > div{
+                &.add__sidebar{
+                    position: var(--_p-sticky);
+                    left: 0;
+                    background: var(--_base-white);
+                    width: var(--_cms-sidebar-width);
+                    height: calc(var(--_height-100-dvh) - var(--_cms-header-height));
+                    border-inline-end: 1px solid var(--_gray-300);
+                    z-index: 9999;
+
+                    & > div{
+                        &.wrapper{
+                            width: 100%;
+
+                            & > div{
+                                &.btn__list{
+                                    display: var(--_d-flex);
+                                    align-items: center;
+                                    justify-content: center;
+                                    padding-block: 12px;
+
+                                    & > button{
+                                        display: var(--_d-flex);
+                                        justify-content: center;
+                                        position: var(--_p-relative);
+                                        width: 100%;
+                                        cursor: pointer;
+
+                                        &:hover{
+                                            --_self-visibility: visible;
+                                            --_self-opacity: 1;
+                                        }
+
+                                        &::before{
+                                            content: attr(aria-label);
+                                            position: var(--_p-absolute);
+                                            right: 0px;
+                                            top: 50%;
+                                            transform: translate(100%, -50%);
+                                            background: var(--_gray-700);
+                                            color: var(--_base-white);
+                                            font-size: 14px;
+                                            padding: 6px 8px;
+                                            border-radius: 6px;
+                                            width: max-content;
+                                            opacity: var(--_self-opacity, 0);
+                                            visibility: var(--_self-visibility, hidden);
+                                            transition-property: opacity, visibility;
+                                            transition-duration: .45s;
+                                            transition-timing-function: ease-in-out;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.playground__parent{
+                    
+                    width: calc(100% - calc(2 * var(--_default-pd-inline)) - var(--_cms-sidebar-width));
+                    max-width: 1280px;
+                    margin-inline: auto;
+                    // background: var(--_base-white);
+                    padding-block-start: var(--_default-pd-inline);
+
+                    & > div{
+                        &.wrapper{
+                            background: var(--_base-white);
+                            // border-radius: 8px;
+                            height: calc(var(--_height-100-dvh) - var(--_dummy-header-height) - var(--_default-pd-inline));
+                            // display: var(--_d-flex);
+                            overflow-y: auto;
+                            overflow-x: clip;
+                            // padding-block-end: 100px;
+                            // scroll-behavior: smooth;
+                            // align-items: center;
+                            // justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

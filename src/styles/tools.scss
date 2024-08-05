@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "sass:list";
+
+
+body{
+    overflow-x: clip;
+    // Tooltip
+
+    [data-cms-tool="custom-tooltip"]{
+        background: var(--_primary-100);
+        color: var(--_primary-600);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        padding: 4px 8px;
+        border-radius: 4px;
+        position: var(--_p-absolute);
+        left: calc(1px * var(--_cms-tooltip-left));
+        top: calc(1px * var(--_cms-tooltip-top));
+        transform: translate(25%, 100%);
+    }
+}
